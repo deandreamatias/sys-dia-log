@@ -29,3 +29,9 @@ flutter:
   assets:
     - assets/
     - assets/i18n/
+
+flutter_icons:
+  image_path_android: "assets/sys-dia-log-logo.png"
+  image_path_ios: "assets/sys-dia-log-logo.png"
+  android: true # can specify file name here e.g. "ic_launcher"
+  ios: true # can specify file name here e.g. "My-Launcher-Icon
