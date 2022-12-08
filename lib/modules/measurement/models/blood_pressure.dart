@@ -1,5 +1,11 @@
 import 'dart:ffi';
 
+/// BloodPressure model represents systolic and diastolic values at mmHg,
+/// json view:
+/// {
+///   "systolic": 120,
+///   "diastolic" 80
+/// }
 class BloodPressure {
   static const String _systolicJsonKey = 'systolic';
   static const String _diastolicJsonKey = 'diastolic';

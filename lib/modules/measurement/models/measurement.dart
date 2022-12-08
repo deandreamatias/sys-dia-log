@@ -1,6 +1,18 @@
 import 'blood_pressure.dart';
 import 'pulse.dart';
 
+/// Measurement model represents data values at particular time,
+/// json view:
+/// {
+///   "bloodPressure" : {
+///     "systolic": 110,
+///     "diastolic" : 90
+///   },
+///   "pulse": {
+///       "bpm" : 65
+///   },
+///  "createdAt":  "2022-12-08T20:49:44Z"
+/// }
 class Measurement {
   static const String _bloodPressureJsonKey = 'bloodPressure';
   static const String _pulseJsonKey = 'pulse';

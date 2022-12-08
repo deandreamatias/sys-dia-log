@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+//// Pulse model represents number beeps per minute,
+/// json view:
+/// {
+///   "bpm": 60
+/// }
 class Pulse {
   static const String _bpmJsonKey = 'bpm';
 
