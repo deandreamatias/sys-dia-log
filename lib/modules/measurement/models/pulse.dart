@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 //// Pulse model represents number beeps per minute,
 /// json view:
 /// {

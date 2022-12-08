@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 /// BloodPressure model represents systolic and diastolic values at mmHg,
 /// json view:
 /// {
