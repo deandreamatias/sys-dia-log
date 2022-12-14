@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:sys_dia_log/routing/router.dart';
-import 'package:sys_dia_log/shared/views/nav_bar_view.dart';
 
 class SplashScreenView extends StatefulWidget {
   const SplashScreenView({super.key});
