@@ -3,5 +3,5 @@ import 'app.dart';
 
 /// Sys Dia Log application entrypoint.
 void main() async {
-  runApp(const SysDiaLogApp());
+  runApp(SysDiaLogApp());
 }

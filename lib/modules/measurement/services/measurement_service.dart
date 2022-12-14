@@ -1,6 +1,3 @@
-import 'package:sys_dia_log/modules/measurement/models/blood_pressure.dart';
-import 'package:sys_dia_log/modules/measurement/models/pulse.dart';
-
 import '../models/measurement.dart';
 
 class MeasurementService {
