@@ -1,10 +1,10 @@
 import '../models/measurement.dart';
 
 class MeasurementService {
-  Set<Measurement> data = {};
+  late final Set<Measurement> _data;
 
   MeasurementService()
-      : data = {
+      : _data = {
           Measurement(
               120, 90, 60, DateTime.now().add(const Duration(days: -1))),
           Measurement(
@@ -14,17 +14,20 @@ class MeasurementService {
         };
 
   Future<Set<Measurement>> getMeasurementData() async {
-    return Future.value(data);
+    return Future.delayed(
+      const Duration(seconds: 5),
+      () => _data,
+    );
   }
 
   Future<Set<Measurement>> addMeasurementData(Measurement measurement) async {
-    data.add(measurement);
-    return Future.value(data);
+    _data.add(measurement);
+    return Future.value(_data);
   }
 
   Future<Set<Measurement>> deleteMeasurementData(
       Measurement measurement) async {
-    data.remove(measurement);
-    return Future.value(data);
+    _data.remove(measurement);
+    return Future.value(_data);
   }
 }
