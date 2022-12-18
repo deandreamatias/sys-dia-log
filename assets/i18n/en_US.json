@@ -2,5 +2,8 @@
   "title": "Sys Dia Log",
   "home": "Home",
   "measurement": "Measurement",
-  "settings": "Settings"
+  "settings": "Settings",
+  "pulse": "Pulse",
+  "systolic": "Systolic",
+  "diastolic": "Diastolic"
 }

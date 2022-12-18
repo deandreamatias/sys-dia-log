@@ -2,5 +2,8 @@
   "title": "Sys Dia Log",
   "home": "Дамоу",
   "measurement": "Вымярэнне",
-  "settings": "Налады"
+  "settings": "Налады",
+  "pulse": "Пульс",
+  "systolic": "Сісталічнае",
+  "diastolic": "Дыясталічны"
 }
