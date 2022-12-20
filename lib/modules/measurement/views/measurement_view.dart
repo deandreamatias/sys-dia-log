@@ -22,6 +22,8 @@ class _MeasurementViewState extends State<MeasurementView> {
     _pulse = 60;
   }
 
+  void _onSave() {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,9 +81,14 @@ class _MeasurementViewState extends State<MeasurementView> {
                   ],
                 ))
               ],
-            )
+            ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: _onSave,
+        label: I18nText('save'),
+        icon: const Icon(Icons.save_outlined),
       ),
     );
   }

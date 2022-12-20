@@ -44,31 +44,29 @@ class _HomeViewState extends State<HomeView> {
             itemBuilder: (context, index) {
               return Card(
                 child: ListTile(
-                  leading: CircleAvatar(
-                    radius: 40,
-                    backgroundColor: Theme.of(context).secondaryHeaderColor,
-                    foregroundColor: Theme.of(context).primaryColor,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                            '${snapshot.data?.elementAt(index).bloodPressure.systolic}'),
-                        Text(
-                            '${snapshot.data?.elementAt(index).bloodPressure.diastolic}')
-                      ],
+                    leading: CircleAvatar(
+                      radius: 40,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                              '${snapshot.data?.elementAt(index).bloodPressure.systolic}'),
+                          Text(
+                              '${snapshot.data?.elementAt(index).bloodPressure.diastolic}')
+                        ],
+                      ),
                     ),
-                  ),
-                  title: const Text('Normal'),
-                  subtitle: Row(children: [
-                    Text('${snapshot.data?.elementAt(index).createdAt}'),
-                    const Spacer(),
-                    Text('${snapshot.data?.elementAt(index).pulse.bpm} BPM')
-                  ]),
-                  trailing: const CircleAvatar(
-                    backgroundColor: Colors.green,
-                    radius: 3,
-                  ),
-                ),
+                    title: const Text('Normal'),
+                    subtitle: Row(children: [
+                      Text('${snapshot.data?.elementAt(index).createdAt}'),
+                      const Spacer(),
+                      Text('${snapshot.data?.elementAt(index).pulse.bpm} BPM')
+                    ]),
+                    trailing: const Icon(
+                      Icons.circle,
+                      color: Colors.green,
+                      size: 10,
+                    )),
               );
             },
           );
