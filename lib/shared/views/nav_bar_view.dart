@@ -29,8 +29,8 @@ class NavBarView extends StatelessWidget {
                   selectedIcon: const Icon(Icons.home),
                   label: FlutterI18n.translate(context, 'home')),
               NavigationDestination(
-                  icon: const Icon(Icons.add_outlined),
-                  selectedIcon: const Icon(Icons.add),
+                  icon: const Icon(Icons.add_circle_outline_outlined),
+                  selectedIcon: const Icon(Icons.add_circle),
                   label: FlutterI18n.translate(context, 'measurement')),
               NavigationDestination(
                   icon: const Icon(Icons.settings_outlined),

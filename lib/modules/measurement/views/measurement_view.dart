@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/widgets/I18nText.dart';
 import 'package:numberpicker/numberpicker.dart';
+import 'package:sys_dia_log/routing/router.dart';
 
 class MeasurementView extends StatefulWidget {
   const MeasurementView({Key? key}) : super(key: key);
@@ -22,7 +24,9 @@ class _MeasurementViewState extends State<MeasurementView> {
     _pulse = 60;
   }
 
-  void _onSave() {}
+  void _onSave() {
+    AutoRouter.of(context).navigate(const HomeViewRoute());
+  }
 
   @override
   Widget build(BuildContext context) {
