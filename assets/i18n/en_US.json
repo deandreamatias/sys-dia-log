@@ -6,5 +6,6 @@
   "pulse": "Pulse",
   "systolic": "Systolic",
   "diastolic": "Diastolic",
-  "save": "Save"
+  "save": "Save",
+  "created": "Created new Measurement - {createdAt}."
 }

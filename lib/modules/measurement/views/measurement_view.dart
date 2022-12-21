@@ -2,6 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/widgets/I18nText.dart';
 import 'package:numberpicker/numberpicker.dart';
+import 'package:sys_dia_log/modules/measurement/models/measurement.dart';
+import 'package:sys_dia_log/modules/measurement/services/measurement_service.dart';
 import 'package:sys_dia_log/routing/router.dart';
 
 class MeasurementView extends StatefulWidget {
@@ -25,7 +27,24 @@ class _MeasurementViewState extends State<MeasurementView> {
   }
 
   void _onSave() {
+    Measurement measurement =
+        Measurement(_systolic, _diastolic, _pulse, DateTime.now());
+
+    //TODO: State
+    Future<Set<Measurement>> dataSnap =
+        MeasurementService().addMeasurementData(measurement);
+
     AutoRouter.of(context).navigate(const HomeViewRoute());
+
+    ScaffoldMessenger.of(context)
+      ..removeCurrentSnackBar()
+      ..showSnackBar(SnackBar(
+          content: I18nText(
+        'created',
+        translationParams: {
+          'createdAt': measurement.createdAt.toIso8601String()
+        },
+      )));
   }
 
   @override
