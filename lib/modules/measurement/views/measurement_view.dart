@@ -15,6 +15,8 @@ class MeasurementView extends StatefulWidget {
 }
 
 class _MeasurementViewState extends State<MeasurementView> {
+  final MeasurementService _service = MeasurementService();
+
   late int _systolic;
   late int _diastolic;
   late int _pulse;
@@ -33,9 +35,9 @@ class _MeasurementViewState extends State<MeasurementView> {
 
     //TODO: State
     Future<Set<Measurement>> dataSnap =
-        MeasurementService().addMeasurementData(measurement);
+        _service.addMeasurementData(measurement);
 
-    AutoRouter.of(context).navigate(const HomeViewRoute());
+    AutoRouter.of(context).navigate(HomeViewRoute(dataSnap: dataSnap));
 
     ScaffoldMessenger.of(context)
       ..removeCurrentSnackBar()

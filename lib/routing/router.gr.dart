@@ -33,9 +33,14 @@ class _$AppRouter extends RootStackRouter {
       );
     },
     HomeViewRoute.name: (routeData) {
+      final args = routeData.argsAs<HomeViewRouteArgs>(
+          orElse: () => const HomeViewRouteArgs());
       return MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const HomeView(),
+        child: HomeView(
+          key: args.key,
+          dataSnap: args.dataSnap,
+        ),
       );
     },
     MeasurementViewRoute.name: (routeData) {
@@ -109,14 +114,36 @@ class NavBarViewRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [HomeView]
-class HomeViewRoute extends PageRouteInfo<void> {
-  const HomeViewRoute()
-      : super(
+class HomeViewRoute extends PageRouteInfo<HomeViewRouteArgs> {
+  HomeViewRoute({
+    Key? key,
+    Future<Set<Measurement>>? dataSnap,
+  }) : super(
           HomeViewRoute.name,
           path: 'home-view',
+          args: HomeViewRouteArgs(
+            key: key,
+            dataSnap: dataSnap,
+          ),
         );
 
   static const String name = 'HomeViewRoute';
+}
+
+class HomeViewRouteArgs {
+  const HomeViewRouteArgs({
+    this.key,
+    this.dataSnap,
+  });
+
+  final Key? key;
+
+  final Future<Set<Measurement>>? dataSnap;
+
+  @override
+  String toString() {
+    return 'HomeViewRouteArgs{key: $key, dataSnap: $dataSnap}';
+  }
 }
 
 /// generated route for

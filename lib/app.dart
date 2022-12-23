@@ -19,7 +19,7 @@ class SysDiaLogApp extends StatelessWidget {
       supportedLocales: const [
         Locale('en', 'US'),
         Locale('ru', 'RU'),
-        Locale('by', 'BY')
+        Locale('be', 'BLR')
       ],
       localizationsDelegates: [
         FlutterI18nDelegate(
@@ -28,6 +28,7 @@ class SysDiaLogApp extends StatelessWidget {
                 basePath: 'assets/i18n', useCountryCode: true)),
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
       ],
       routerDelegate: _appRouter.delegate(),
       routeInformationParser: _appRouter.defaultRouteParser(),

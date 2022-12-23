@@ -6,19 +6,24 @@ import 'package:sys_dia_log/shared/ui/loading_indicator.dart';
 import 'package:intl/intl.dart';
 
 class HomeView extends StatefulWidget {
-  const HomeView({super.key});
+  final Future<Set<Measurement>>? _dataSnap;
+
+  HomeView({super.key, Future<Set<Measurement>>? dataSnap})
+      : _dataSnap = dataSnap ?? HomeServiceFacade().getHomeViewData();
 
   @override
   State<StatefulWidget> createState() => _HomeViewState();
 }
 
 class _HomeViewState extends State<HomeView> {
-  late final Future<Set<Measurement>> _dataSnap;
+  late Future<Set<Measurement>> _dataSnap = widget._dataSnap!;
 
   @override
-  void initState() {
-    super.initState();
-    _dataSnap = HomeServiceFacade().getHomeViewData();
+  void didUpdateWidget(covariant HomeView oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    setState(() {
+      _dataSnap = widget._dataSnap!;
+    });
   }
 
   @override

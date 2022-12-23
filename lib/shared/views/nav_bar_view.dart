@@ -10,10 +10,10 @@ class NavBarView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AutoTabsRouter(
-      routes: const [
+      routes: [
         HomeViewRoute(),
-        MeasurementViewRoute(),
-        SettingsViewRoute()
+        const MeasurementViewRoute(),
+        const SettingsViewRoute()
       ],
       builder: (context, child, animation) {
         final tabsRouter = AutoTabsRouter.of(context);
