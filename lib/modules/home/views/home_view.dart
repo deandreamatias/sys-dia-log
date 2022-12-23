@@ -3,6 +3,7 @@ import 'package:flutter_i18n/widgets/I18nText.dart';
 import 'package:sys_dia_log/modules/home/services/home_service_facade.dart';
 import 'package:sys_dia_log/modules/measurement/models/measurement.dart';
 import 'package:sys_dia_log/shared/ui/loading_indicator.dart';
+import 'package:intl/intl.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -58,9 +59,12 @@ class _HomeViewState extends State<HomeView> {
                     ),
                     title: const Text('Normal'),
                     subtitle: Row(children: [
-                      Text('${snapshot.data?.elementAt(index).createdAt}'),
+                      Text(DateFormat.yMd()
+                          .format(snapshot.data!.elementAt(index).createdAt)),
                       const Spacer(),
-                      Text('${snapshot.data?.elementAt(index).pulse.bpm} BPM')
+                      I18nText('bpm', translationParams: {
+                        'bpm': '${snapshot.data?.elementAt(index).pulse.bpm}'
+                      })
                     ]),
                     trailing: const Icon(
                       Icons.circle,

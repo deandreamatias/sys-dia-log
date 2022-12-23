@@ -4,6 +4,7 @@
   "measurement": "Measurement",
   "settings": "Settings",
   "pulse": "Pulse",
+  "bpm": "{bpm} BPM",
   "systolic": "Systolic",
   "diastolic": "Diastolic",
   "save": "Save",

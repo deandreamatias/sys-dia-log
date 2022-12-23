@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/widgets/I18nText.dart';
+import 'package:intl/intl.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:sys_dia_log/modules/measurement/models/measurement.dart';
 import 'package:sys_dia_log/modules/measurement/services/measurement_service.dart';
@@ -42,7 +43,7 @@ class _MeasurementViewState extends State<MeasurementView> {
           content: I18nText(
         'created',
         translationParams: {
-          'createdAt': measurement.createdAt.toIso8601String()
+          'createdAt': DateFormat.yMd().format(measurement.createdAt)
         },
       )));
   }

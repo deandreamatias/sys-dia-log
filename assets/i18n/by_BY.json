@@ -4,6 +4,7 @@
   "measurement": "Вымярэнне",
   "settings": "Налады",
   "pulse": "Пульс",
+  "bpm": "{bpm} Уд/Мін",
   "systolic": "Сісталічнае",
   "diastolic": "Дыясталічны",
   "save": "Захаваць",
