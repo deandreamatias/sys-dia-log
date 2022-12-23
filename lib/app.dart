@@ -16,6 +16,11 @@ class SysDiaLogApp extends StatelessWidget {
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       themeMode: ThemeMode.system,
+      supportedLocales: const [
+        Locale('en', 'US'),
+        Locale('ru', 'RU'),
+        Locale('by', 'BY')
+      ],
       localizationsDelegates: [
         FlutterI18nDelegate(
             keySeparator: '.',
