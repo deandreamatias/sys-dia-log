@@ -11,6 +11,7 @@ class SysDiaLogApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      useInheritedMediaQuery: true,
       title: 'Sys Dia Log',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(),

@@ -1,17 +1,7 @@
 import '../models/measurement.dart';
 
 class MeasurementService {
-  late final Set<Measurement> _data;
-
-  MeasurementService()
-      : _data = {
-          Measurement(
-              120, 90, 60, DateTime.now().add(const Duration(days: -1))),
-          Measurement(
-              110, 80, 70, DateTime.now().add(const Duration(days: -2))),
-          Measurement(
-              100, 80, 65, DateTime.now().add(const Duration(days: -3))),
-        };
+  late final Set<Measurement> _data = {};
 
   Future<Set<Measurement>> getMeasurementData() async {
     return Future.delayed(

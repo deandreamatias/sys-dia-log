@@ -8,5 +8,6 @@
   "systolic": "Systolic",
   "diastolic": "Diastolic",
   "save": "Save",
-  "created": "Created new Measurement - {createdAt}."
+  "created": "Created new Measurement - {createdAt}.",
+  "add": "Add Measurement"
 }

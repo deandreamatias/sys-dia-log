@@ -1,30 +1,17 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/widgets/I18nText.dart';
 import 'package:sys_dia_log/modules/home/services/home_service_facade.dart';
 import 'package:sys_dia_log/modules/measurement/models/measurement.dart';
+import 'package:sys_dia_log/routing/router.dart';
 import 'package:sys_dia_log/shared/ui/loading_indicator.dart';
 import 'package:intl/intl.dart';
 
-class HomeView extends StatefulWidget {
-  final Future<Set<Measurement>>? _dataSnap;
+class HomeView extends StatelessWidget {
+  late final Future<Set<Measurement>>? _dataSnap;
 
   HomeView({super.key, Future<Set<Measurement>>? dataSnap})
       : _dataSnap = dataSnap ?? HomeServiceFacade().getHomeViewData();
-
-  @override
-  State<StatefulWidget> createState() => _HomeViewState();
-}
-
-class _HomeViewState extends State<HomeView> {
-  late Future<Set<Measurement>> _dataSnap = widget._dataSnap!;
-
-  @override
-  void didUpdateWidget(covariant HomeView oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    setState(() {
-      _dataSnap = widget._dataSnap!;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +25,21 @@ class _HomeViewState extends State<HomeView> {
             return const Center(child: LoadingIndicator());
           } else if (snapshot.connectionState == ConnectionState.done) {
             if (snapshot.hasError) {
-              // TODO: return refresh;
+              return Center(
+                  child: IconButton(
+                      onPressed: () => {
+                            //TODO: Reload future snapshot
+                          },
+                      icon: const Icon(Icons.refresh_outlined)));
             }
-            if (!snapshot.hasData) {
-              // TODO: return add some data
+            if (!snapshot.hasData || snapshot.data!.isEmpty) {
+              return Center(
+                  child: FloatingActionButton.extended(
+                icon: const Icon(Icons.add),
+                label: I18nText('add'),
+                onPressed: () => AutoRouter.of(context)
+                    .navigate(const MeasurementViewRoute()),
+              ));
             }
           }
 
