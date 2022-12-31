@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:sys_dia_log/locale/locales.dart';
 import 'package:sys_dia_log/routing/router.dart';
 
 class SysDiaLogApp extends StatelessWidget {
@@ -17,16 +18,12 @@ class SysDiaLogApp extends StatelessWidget {
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       themeMode: ThemeMode.system,
-      supportedLocales: const [
-        Locale('en', 'US'),
-        Locale('ru', 'RU'),
-        Locale('be', 'BLR')
-      ],
+      supportedLocales: locales,
       localizationsDelegates: [
         FlutterI18nDelegate(
             keySeparator: '.',
             translationLoader: FileTranslationLoader(
-                basePath: 'assets/i18n', useCountryCode: true)),
+                basePath: translationsPath, useCountryCode: true)),
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
