@@ -1,5 +1,8 @@
+import 'package:hive/hive.dart';
 import 'blood_pressure.dart';
 import 'pulse.dart';
+
+part 'measurement.g.dart';
 
 /// Measurement model represents data values at particular time,
 /// json view:
@@ -13,16 +16,24 @@ import 'pulse.dart';
 ///   },
 ///  "createdAt":  "2022-12-08T20:49:44Z"
 /// }
-class Measurement {
+@HiveType(typeId: 0, adapterName: 'MeasurementHiveAdapter')
+class Measurement extends HiveObject {
   static const String _bloodPressureJsonKey = 'bloodPressure';
   static const String _pulseJsonKey = 'pulse';
   static const String _createdAtJsonKey = 'createdAt';
 
+  @HiveField(0)
   final BloodPressure bloodPressure;
+
+  @HiveField(1)
   final Pulse pulse;
+
+  @HiveField(2)
   final DateTime createdAt;
 
-  Measurement(int systolic, int diastolic, int bpm, this.createdAt)
+  Measurement(this.bloodPressure, this.pulse, this.createdAt);
+
+  Measurement.values(int systolic, int diastolic, int bpm, this.createdAt)
       : bloodPressure = BloodPressure(systolic, diastolic),
         pulse = Pulse(bpm);
 

@@ -31,7 +31,7 @@ class _MeasurementViewState extends State<MeasurementView> {
 
   void _onSave() {
     Measurement measurement =
-        Measurement(_systolic, _diastolic, _pulse, DateTime.now());
+        Measurement.values(_systolic, _diastolic, _pulse, DateTime.now());
 
     //TODO: State
     Future<Set<Measurement>> dataSnap =
