@@ -4,6 +4,7 @@ import 'package:sys_dia_log/hive/hive_box.dart';
 import 'package:sys_dia_log/modules/measurement/models/blood_pressure.dart';
 import 'package:sys_dia_log/modules/measurement/models/measurement.dart';
 import 'package:sys_dia_log/modules/measurement/models/pulse.dart';
+
 import 'app.dart';
 
 /// Sys Dia Log application entrypoint.
