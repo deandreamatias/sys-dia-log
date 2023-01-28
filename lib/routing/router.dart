@@ -5,7 +5,7 @@ import 'package:sys_dia_log/modules/measurement/views/measurement_view.dart';
 import 'package:sys_dia_log/modules/settings/views/settings_view.dart';
 import 'package:sys_dia_log/shared/views/splash_screen_view.dart';
 import 'package:sys_dia_log/shared/views/nav_bar_view.dart';
-import 'package:sys_dia_log/modules/measurement/models/measurement.dart';
+import '../modules/measurement/models/measurement.dart';
 
 part 'router.gr.dart';
 
@@ -16,7 +16,7 @@ part 'router.gr.dart';
     CustomRoute(
         page: NavBarView,
         children: [
-          AutoRoute(page: HomeView),
+          AutoRoute(page: HomeView, initial: true),
           AutoRoute(page: MeasurementView),
           AutoRoute(page: SettingsView)
         ],

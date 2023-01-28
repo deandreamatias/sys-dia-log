@@ -20,6 +20,7 @@ dependencies:
   numberpicker: ^2.1.1
   hive: ^2.2.3
   hive_flutter: ^1.1.0
+  provider: ^4.3.1
 
 
 dev_dependencies:

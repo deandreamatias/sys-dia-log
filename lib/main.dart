@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:sys_dia_log/hive/hive_box.dart';
 import 'package:sys_dia_log/modules/measurement/models/blood_pressure.dart';
 import 'package:sys_dia_log/modules/measurement/models/measurement.dart';
 import 'package:sys_dia_log/modules/measurement/models/pulse.dart';
@@ -14,10 +13,6 @@ void main() async {
   Hive.registerAdapter(BloodPressureHiveAdapter());
   Hive.registerAdapter(PulseHiveAdapter());
   Hive.registerAdapter(MeasurementHiveAdapter());
-
-  await Future.wait([
-    Hive.openLazyBox(measurementsBox),
-  ]);
 
   runApp(SysDiaLogApp());
 }

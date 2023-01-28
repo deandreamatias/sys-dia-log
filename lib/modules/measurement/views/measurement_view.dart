@@ -1,22 +1,25 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/widgets/I18nText.dart';
+import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:sys_dia_log/modules/measurement/models/measurement.dart';
-import 'package:sys_dia_log/modules/measurement/services/measurement_service.dart';
 import 'package:sys_dia_log/routing/router.dart';
 
+import '../../../hive/hive_box.dart';
+
 class MeasurementView extends StatefulWidget {
-  const MeasurementView({Key? key}) : super(key: key);
+  final void Function(Measurement) onAddNewMeasurement;
+
+  const MeasurementView({Key? key, required this.onAddNewMeasurement})
+      : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _MeasurementViewState();
 }
 
 class _MeasurementViewState extends State<MeasurementView> {
-  final MeasurementService _service = MeasurementService();
-
   late int _systolic;
   late int _diastolic;
   late int _pulse;
@@ -33,11 +36,11 @@ class _MeasurementViewState extends State<MeasurementView> {
     Measurement measurement =
         Measurement.values(_systolic, _diastolic, _pulse, DateTime.now());
 
-    //TODO: State
-    Future<Set<Measurement>> dataSnap =
-        _service.addMeasurementData(measurement);
+    Hive.box<Measurement>(measurementsBox).add(measurement);
 
-    AutoRouter.of(context).navigate(HomeViewRoute(dataSnap: dataSnap));
+    widget.onAddNewMeasurement(measurement);
+
+    AutoRouter.of(context).navigate(const HomeViewRoute());
 
     ScaffoldMessenger.of(context)
       ..removeCurrentSnackBar()

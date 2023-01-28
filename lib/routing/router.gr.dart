@@ -33,20 +33,19 @@ class _$AppRouter extends RootStackRouter {
       );
     },
     HomeViewRoute.name: (routeData) {
-      final args = routeData.argsAs<HomeViewRouteArgs>(
-          orElse: () => const HomeViewRouteArgs());
       return MaterialPageX<dynamic>(
         routeData: routeData,
-        child: HomeView(
-          key: args.key,
-          dataSnap: args.dataSnap,
-        ),
+        child: const HomeView(),
       );
     },
     MeasurementViewRoute.name: (routeData) {
+      final args = routeData.argsAs<MeasurementViewRouteArgs>();
       return MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const MeasurementView(),
+        child: MeasurementView(
+          key: args.key,
+          onAddNewMeasurement: args.onAddNewMeasurement,
+        ),
       );
     },
     SettingsViewRoute.name: (routeData) {
@@ -69,7 +68,7 @@ class _$AppRouter extends RootStackRouter {
           children: [
             RouteConfig(
               HomeViewRoute.name,
-              path: 'home-view',
+              path: '',
               parent: NavBarViewRoute.name,
             ),
             RouteConfig(
@@ -114,48 +113,48 @@ class NavBarViewRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [HomeView]
-class HomeViewRoute extends PageRouteInfo<HomeViewRouteArgs> {
-  HomeViewRoute({
-    Key? key,
-    Future<Set<Measurement>>? dataSnap,
-  }) : super(
+class HomeViewRoute extends PageRouteInfo<void> {
+  const HomeViewRoute()
+      : super(
           HomeViewRoute.name,
-          path: 'home-view',
-          args: HomeViewRouteArgs(
-            key: key,
-            dataSnap: dataSnap,
-          ),
+          path: '',
         );
 
   static const String name = 'HomeViewRoute';
 }
 
-class HomeViewRouteArgs {
-  const HomeViewRouteArgs({
+/// generated route for
+/// [MeasurementView]
+class MeasurementViewRoute extends PageRouteInfo<MeasurementViewRouteArgs> {
+  MeasurementViewRoute({
+    Key? key,
+    required void Function(Measurement) onAddNewMeasurement,
+  }) : super(
+          MeasurementViewRoute.name,
+          path: 'measurement-view',
+          args: MeasurementViewRouteArgs(
+            key: key,
+            onAddNewMeasurement: onAddNewMeasurement,
+          ),
+        );
+
+  static const String name = 'MeasurementViewRoute';
+}
+
+class MeasurementViewRouteArgs {
+  const MeasurementViewRouteArgs({
     this.key,
-    this.dataSnap,
+    required this.onAddNewMeasurement,
   });
 
   final Key? key;
 
-  final Future<Set<Measurement>>? dataSnap;
+  final void Function(Measurement) onAddNewMeasurement;
 
   @override
   String toString() {
-    return 'HomeViewRouteArgs{key: $key, dataSnap: $dataSnap}';
+    return 'MeasurementViewRouteArgs{key: $key, onAddNewMeasurement: $onAddNewMeasurement}';
   }
-}
-
-/// generated route for
-/// [MeasurementView]
-class MeasurementViewRoute extends PageRouteInfo<void> {
-  const MeasurementViewRoute()
-      : super(
-          MeasurementViewRoute.name,
-          path: 'measurement-view',
-        );
-
-  static const String name = 'MeasurementViewRoute';
 }
 
 /// generated route for
