@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/widgets/I18nText.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:intl/intl.dart';
 import 'package:sys_dia_log/hive/hive_box.dart';
 import 'package:sys_dia_log/modules/home/ui/add_new_button.dart';
 import 'package:sys_dia_log/modules/home/ui/measurements_list.dart';
@@ -27,17 +26,15 @@ class _HomeViewState extends State<HomeView> {
     _futureBox = Hive.openBox<Measurement>(measurementsBox);
   }
 
-  _onAddNewMeasurement(Measurement measurement) {
-    setState(() {});
-  }
-
   _addNavigate() {
-    context.router.navigate(
-        MeasurementViewRoute(onAddNewMeasurement: _onAddNewMeasurement));
+    context.router.navigate(MeasurementViewRoute(
+        onAddNewMeasurement: (Measurement m) => setState(() {})));
   }
 
   _onRefresh() {
-    context.router.navigate(const HomeViewRoute());
+    setState(() {
+      _futureBox = Hive.openBox<Measurement>(measurementsBox);
+    });
   }
 
   @override

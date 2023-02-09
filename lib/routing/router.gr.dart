@@ -39,7 +39,8 @@ class _$AppRouter extends RootStackRouter {
       );
     },
     MeasurementViewRoute.name: (routeData) {
-      final args = routeData.argsAs<MeasurementViewRouteArgs>();
+      final args = routeData.argsAs<MeasurementViewRouteArgs>(
+          orElse: () => const MeasurementViewRouteArgs());
       return MaterialPageX<dynamic>(
         routeData: routeData,
         child: MeasurementView(
@@ -128,7 +129,7 @@ class HomeViewRoute extends PageRouteInfo<void> {
 class MeasurementViewRoute extends PageRouteInfo<MeasurementViewRouteArgs> {
   MeasurementViewRoute({
     Key? key,
-    required void Function(Measurement) onAddNewMeasurement,
+    void Function(Measurement)? onAddNewMeasurement,
   }) : super(
           MeasurementViewRoute.name,
           path: 'measurement-view',
@@ -144,12 +145,12 @@ class MeasurementViewRoute extends PageRouteInfo<MeasurementViewRouteArgs> {
 class MeasurementViewRouteArgs {
   const MeasurementViewRouteArgs({
     this.key,
-    required this.onAddNewMeasurement,
+    this.onAddNewMeasurement,
   });
 
   final Key? key;
 
-  final void Function(Measurement) onAddNewMeasurement;
+  final void Function(Measurement)? onAddNewMeasurement;
 
   @override
   String toString() {

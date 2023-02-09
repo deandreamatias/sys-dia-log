@@ -12,9 +12,7 @@ class NavBarView extends StatelessWidget {
     return AutoTabsRouter(
       routes: [
         const HomeViewRoute(),
-        MeasurementViewRoute(
-          onAddNewMeasurement: (p0) => {},
-        ),
+        MeasurementViewRoute(),
         const SettingsViewRoute()
       ],
       builder: (context, child, animation) {

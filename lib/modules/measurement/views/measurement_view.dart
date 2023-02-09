@@ -10,10 +10,9 @@ import 'package:sys_dia_log/routing/router.dart';
 import '../../../hive/hive_box.dart';
 
 class MeasurementView extends StatefulWidget {
-  final void Function(Measurement) onAddNewMeasurement;
+  final void Function(Measurement)? onAddNewMeasurement;
 
-  const MeasurementView({Key? key, required this.onAddNewMeasurement})
-      : super(key: key);
+  const MeasurementView({Key? key, this.onAddNewMeasurement}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _MeasurementViewState();
@@ -38,7 +37,7 @@ class _MeasurementViewState extends State<MeasurementView> {
 
     Hive.box<Measurement>(measurementsBox).add(measurement);
 
-    widget.onAddNewMeasurement(measurement);
+    widget.onAddNewMeasurement?.call(measurement);
 
     AutoRouter.of(context).navigate(const HomeViewRoute());
 
