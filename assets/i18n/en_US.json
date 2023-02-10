@@ -9,5 +9,6 @@
   "diastolic": "Diastolic",
   "save": "Save",
   "created": "Created new Measurement - {createdAt}.",
-  "add": "Add Measurement"
+  "add": "Add Measurement",
+  "dismiss": "Dismiss"
 }

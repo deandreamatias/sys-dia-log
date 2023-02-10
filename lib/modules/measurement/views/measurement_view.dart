@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:sys_dia_log/modules/measurement/models/measurement.dart';
 import 'package:sys_dia_log/routing/router.dart';
+import 'package:sys_dia_log/shared/ui/snack_bars.dart';
 
 import '../../../hive/hive_box.dart';
 
@@ -43,13 +44,14 @@ class _MeasurementViewState extends State<MeasurementView> {
 
     ScaffoldMessenger.of(context)
       ..removeCurrentSnackBar()
-      ..showSnackBar(SnackBar(
-          content: I18nText(
-        'created',
-        translationParams: {
-          'createdAt': DateFormat.yMd().format(measurement.createdAt)
-        },
-      )));
+      ..showSnackBar(getSnackBarWithDismissAction(
+          I18nText(
+            "created",
+            translationParams: {
+              'createdAt': DateFormat.yMd().format(measurement.createdAt)
+            },
+          ),
+          context));
   }
 
   @override
