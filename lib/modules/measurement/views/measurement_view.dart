@@ -48,7 +48,8 @@ class _MeasurementViewState extends State<MeasurementView> {
           I18nText(
             "created",
             translationParams: {
-              'createdAt': DateFormat.yMd().format(measurement.createdAt)
+              'createdAt':
+                  DateFormat.yMd().add_Hm().format(measurement.createdAt)
             },
           ),
           context));

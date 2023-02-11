@@ -27,7 +27,9 @@ class MeasurementsList extends StatelessWidget {
               ),
               title: const Text('Normal'),
               subtitle: Row(children: [
-                Text(DateFormat.yMd().format(data.elementAt(index).createdAt)),
+                Text(DateFormat.yMd()
+                    .add_Hm()
+                    .format(data.elementAt(index).createdAt)),
                 const Spacer(),
                 I18nText('bpm', translationParams: {
                   'bpm': '${data.elementAt(index).pulse.bpm}'
