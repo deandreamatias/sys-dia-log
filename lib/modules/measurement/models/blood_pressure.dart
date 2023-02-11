@@ -21,11 +21,11 @@ class BloodPressure {
 
   BloodPressure(this.systolic, this.diastolic);
 
-  BloodPressure.fromJson(Map<String, dynamic> json)
+  BloodPressure.fromMap(Map<String, dynamic> json)
       : systolic = json[_systolicJsonKey] as int,
         diastolic = json[_diastolicJsonKey] as int;
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toMap() {
     return {_systolicJsonKey: systolic, _diastolicJsonKey: diastolic};
   }
 }

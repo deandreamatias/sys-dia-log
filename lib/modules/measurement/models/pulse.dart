@@ -16,7 +16,7 @@ class Pulse extends HiveObject {
 
   Pulse(this.bpm);
 
-  Pulse.fromJson(Map<String, dynamic> json) : bpm = json[_bpmJsonKey] as int;
+  Pulse.fromMap(Map<String, dynamic> json) : bpm = json[_bpmJsonKey] as int;
 
   Map<String, dynamic> toJson() {
     return {_bpmJsonKey: bpm};

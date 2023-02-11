@@ -37,15 +37,15 @@ class Measurement extends HiveObject {
       : bloodPressure = BloodPressure(systolic, diastolic),
         pulse = Pulse(bpm);
 
-  Measurement.fromJson(Map<String, dynamic> json)
-      : bloodPressure = BloodPressure.fromJson(
+  Measurement.fromMap(Map<String, dynamic> json)
+      : bloodPressure = BloodPressure.fromMap(
             json[_bloodPressureJsonKey] as Map<String, dynamic>),
-        pulse = Pulse.fromJson(json[_pulseJsonKey] as Map<String, dynamic>),
+        pulse = Pulse.fromMap(json[_pulseJsonKey] as Map<String, dynamic>),
         createdAt = DateTime.parse(json[_createdAtJsonKey] as String);
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toMap() {
     return {
-      _bloodPressureJsonKey: bloodPressure.toJson(),
+      _bloodPressureJsonKey: bloodPressure.toMap(),
       _pulseJsonKey: pulse.toJson(),
       _createdAtJsonKey: createdAt.toIso8601String()
     };
