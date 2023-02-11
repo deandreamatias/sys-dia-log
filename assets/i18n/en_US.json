@@ -10,5 +10,11 @@
   "save": "Save",
   "created": "Created new Measurement - {createdAt}.",
   "add": "Add Measurement",
-  "dismiss": "Dismiss"
+  "dismiss": "Dismiss",
+  "category": {
+    "low": "Low",
+    "norma": "Normal",
+    "preHigh": "Pre-High",
+    "high": "High"
+  }
 }

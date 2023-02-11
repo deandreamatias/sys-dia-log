@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/widgets/I18nText.dart';
 import 'package:intl/intl.dart';
+import 'package:sys_dia_log/modules/measurement/models/blood_pressure_category.dart';
 import 'package:sys_dia_log/modules/measurement/models/measurement.dart';
 
 class MeasurementsList extends StatelessWidget {
@@ -13,6 +14,11 @@ class MeasurementsList extends StatelessWidget {
     return ListView.builder(
       itemCount: data.length,
       itemBuilder: (context, index) {
+        Measurement item = data.elementAt(index);
+
+        BloodPressureCategory bloodPressureCategory =
+            BloodPressureCategory.values.byName(item.bloodPressure.category);
+
         return Card(
           child: ListTile(
               leading: CircleAvatar(
@@ -20,24 +26,21 @@ class MeasurementsList extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('${data.elementAt(index).bloodPressure.systolic}'),
-                    Text('${data.elementAt(index).bloodPressure.diastolic}')
+                    Text('${item.bloodPressure.systolic}'),
+                    Text('${item.bloodPressure.diastolic}')
                   ],
                 ),
               ),
-              title: const Text('Normal'),
+              title: I18nText(bloodPressureCategory.categoryNameKey),
               subtitle: Row(children: [
-                Text(DateFormat.yMd()
-                    .add_Hm()
-                    .format(data.elementAt(index).createdAt)),
+                Text(
+                    DateFormat.yMd().add_Hm().format(item.createdAt.toLocal())),
                 const Spacer(),
-                I18nText('bpm', translationParams: {
-                  'bpm': '${data.elementAt(index).pulse.bpm}'
-                })
+                I18nText('bpm', translationParams: {'bpm': '${item.pulse.bpm}'})
               ]),
-              trailing: const Icon(
+              trailing: Icon(
                 Icons.circle,
-                color: Colors.green,
+                color: bloodPressureCategory.categoryColor,
                 size: 10,
               )),
         );

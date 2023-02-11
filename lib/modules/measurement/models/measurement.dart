@@ -9,7 +9,8 @@ part 'measurement.g.dart';
 /// {
 ///   "bloodPressure" : {
 ///     "systolic": 110,
-///     "diastolic" : 90
+///     "diastolic": 90,
+///     "category": "normal"
 ///   },
 ///   "pulse": {
 ///       "bpm" : 65
@@ -33,9 +34,10 @@ class Measurement extends HiveObject {
 
   Measurement(this.bloodPressure, this.pulse, this.createdAt);
 
-  Measurement.values(int systolic, int diastolic, int bpm, this.createdAt)
+  Measurement.values(int systolic, int diastolic, int bpm)
       : bloodPressure = BloodPressure(systolic, diastolic),
-        pulse = Pulse(bpm);
+        pulse = Pulse(bpm),
+        createdAt = DateTime.now().toUtc();
 
   Measurement.fromMap(Map<String, dynamic> json)
       : bloodPressure = BloodPressure.fromMap(

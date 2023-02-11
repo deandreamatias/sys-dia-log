@@ -24,6 +24,11 @@ class _MeasurementViewState extends State<MeasurementView> {
   late int _diastolic;
   late int _pulse;
 
+  static const int systolicMin = 70;
+  static const int systolicMax = 190;
+  static const int diastolicMin = 40;
+  static const int diastolicMax = 100;
+
   @override
   void initState() {
     super.initState();
@@ -33,8 +38,7 @@ class _MeasurementViewState extends State<MeasurementView> {
   }
 
   void _onSave() {
-    Measurement measurement =
-        Measurement.values(_systolic, _diastolic, _pulse, DateTime.now());
+    Measurement measurement = Measurement.values(_systolic, _diastolic, _pulse);
 
     Hive.box<Measurement>(measurementsBox).add(measurement);
 
@@ -48,8 +52,9 @@ class _MeasurementViewState extends State<MeasurementView> {
           I18nText(
             "created",
             translationParams: {
-              'createdAt':
-                  DateFormat.yMd().add_Hm().format(measurement.createdAt)
+              'createdAt': DateFormat.yMd()
+                  .add_Hm()
+                  .format(measurement.createdAt.toLocal())
             },
           ),
           context));
@@ -72,8 +77,8 @@ class _MeasurementViewState extends State<MeasurementView> {
                   children: [
                     I18nText('systolic'),
                     NumberPicker(
-                        minValue: 20,
-                        maxValue: 200,
+                        minValue: systolicMin,
+                        maxValue: systolicMax,
                         value: _systolic,
                         onChanged: (v) => setState(() {
                               _systolic = v;
@@ -86,8 +91,8 @@ class _MeasurementViewState extends State<MeasurementView> {
                     I18nText('diastolic'),
                     NumberPicker(
                         axis: Axis.vertical,
-                        minValue: 20,
-                        maxValue: 200,
+                        minValue: diastolicMin,
+                        maxValue: diastolicMax,
                         value: _diastolic,
                         onChanged: (v) => setState(() {
                               _diastolic = v;
