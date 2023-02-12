@@ -13,7 +13,7 @@
   "dismiss": "Dismiss",
   "category": {
     "low": "Low",
-    "norma": "Normal",
+    "normal": "Normal",
     "preHigh": "Pre-High",
     "high": "High"
   }

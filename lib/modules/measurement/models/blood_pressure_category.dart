@@ -11,19 +11,17 @@ enum BloodPressureCategory {
 
   const BloodPressureCategory(this.categoryColor, this.categoryNameKey);
 
-  /// TODO:
   static BloodPressureCategory fromValues(int systolic, int diastolic) {
-    if (systolic < 90 && diastolic < 60) {
+    if ((systolic <= 90) && (diastolic <= 60)) {
       return BloodPressureCategory.low;
-    } else if ((systolic >= 90 && systolic < 120) &&
-        (diastolic >= 60 && diastolic < 80)) {
+    } else if ((systolic <= 120) && (diastolic <= 80)) {
       return BloodPressureCategory.normal;
-    } else if ((systolic >= 120 && systolic < 140) &&
-        (diastolic >= 80 && diastolic < 90)) {
+    } else if ((systolic <= 140) && (diastolic <= 90)) {
       return BloodPressureCategory.preHigh;
-    } else if (systolic >= 140 && diastolic >= 90) {
+    } else if ((systolic <= 160) && (diastolic <= 100)) {
+      return BloodPressureCategory.high;
+    } else {
       return BloodPressureCategory.high;
     }
-    throw Exception("Out of range");
   }
 }
