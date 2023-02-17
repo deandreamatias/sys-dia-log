@@ -1,7 +1,19 @@
-import 'package:sys_dia_log/modules/home/model/list_row.dart';
+import 'package:flutter/material.dart';
 
 class ListData {
-  final List<ListRow> data;
+  final int systolicValue;
+  final int diastolicValue;
+  final String categoryNameKey;
+  final Color categoryColorValue;
+  final int pulseBpmValue;
+  final DateTime createdAt;
 
-  ListData(this.data);
+  ListData(
+    this.systolicValue,
+    this.diastolicValue,
+    this.categoryNameKey,
+    this.categoryColorValue,
+    this.pulseBpmValue,
+    this.createdAt,
+  );
 }
