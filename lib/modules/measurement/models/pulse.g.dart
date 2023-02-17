@@ -17,7 +17,7 @@ class PulseHiveAdapter extends TypeAdapter<Pulse> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Pulse(
-      fields[0] as int,
+      bpm: fields[0] as int,
     );
   }
 

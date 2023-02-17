@@ -14,11 +14,13 @@ class Pulse extends HiveObject {
   @HiveField(0)
   final int bpm;
 
-  Pulse(this.bpm);
+  Pulse({
+    required this.bpm,
+  });
 
   Pulse.fromMap(Map<String, dynamic> json) : bpm = json[_bpmJsonKey] as int;
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toMap() {
     return {_bpmJsonKey: bpm};
   }
 }

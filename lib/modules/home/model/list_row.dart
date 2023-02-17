@@ -1,0 +1,3 @@
+class ListRow {
+  String systolicValue;
+}

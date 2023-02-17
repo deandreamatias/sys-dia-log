@@ -17,9 +17,9 @@ class MeasurementHiveAdapter extends TypeAdapter<Measurement> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Measurement(
-      fields[0] as BloodPressure,
-      fields[1] as Pulse,
-      fields[2] as DateTime,
+      bloodPressure: fields[0] as BloodPressure,
+      pulse: fields[1] as Pulse,
+      createdAt: fields[2] as DateTime,
     );
   }
 

@@ -17,8 +17,9 @@ class BloodPressureHiveAdapter extends TypeAdapter<BloodPressure> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return BloodPressure(
-      fields[0] as int,
-      fields[1] as int,
+      systolic: fields[0] as int,
+      diastolic: fields[1] as int,
+      category: fields[2] as String,
     );
   }
 

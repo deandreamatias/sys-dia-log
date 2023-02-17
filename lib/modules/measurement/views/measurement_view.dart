@@ -5,6 +5,7 @@ import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:sys_dia_log/modules/measurement/models/measurement.dart';
+import 'package:sys_dia_log/modules/measurement/service/measurement_service.dart';
 import 'package:sys_dia_log/routing/router.dart';
 import 'package:sys_dia_log/shared/ui/snack_bars.dart';
 
@@ -38,9 +39,8 @@ class _MeasurementViewState extends State<MeasurementView> {
   }
 
   void _onSave() {
-    Measurement measurement = Measurement.values(_systolic, _diastolic, _pulse);
-
-    Hive.box<Measurement>(measurementsBox).add(measurement);
+    Measurement measurement = MeasurementService()
+        .createNewMeasurement(_systolic, _diastolic, _pulse);
 
     widget.onAddNewMeasurement?.call(measurement);
 

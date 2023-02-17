@@ -1,5 +1,4 @@
 import 'package:hive/hive.dart';
-import 'package:sys_dia_log/modules/measurement/models/blood_pressure_category.dart';
 
 part 'blood_pressure.g.dart';
 
@@ -8,10 +7,10 @@ part 'blood_pressure.g.dart';
 /// {
 ///   "systolic": 120,
 ///   "diastolic": 80,
-///   "category": "high"
+///   "category": "HIGH"
 /// }
 @HiveType(typeId: 1, adapterName: 'BloodPressureHiveAdapter')
-class BloodPressure {
+class BloodPressure extends HiveObject {
   static const String _systolicJsonKey = 'systolic';
   static const String _diastolicJsonKey = 'diastolic';
   static const String _categoryJsonKey = 'category';
@@ -25,15 +24,16 @@ class BloodPressure {
   @HiveField(2)
   final String category;
 
-  BloodPressure(this.systolic, this.diastolic)
-      : category = BloodPressureCategory.fromValues(systolic, diastolic).name;
+  BloodPressure({
+    required this.systolic,
+    required this.diastolic,
+    required this.category,
+  });
 
   BloodPressure.fromMap(Map<String, dynamic> json)
       : systolic = json[_systolicJsonKey] as int,
         diastolic = json[_diastolicJsonKey] as int,
-        category = BloodPressureCategory.values
-            .byName(json[_categoryJsonKey] as String)
-            .name;
+        category = json[_categoryJsonKey] as String;
 
   Map<String, dynamic> toMap() {
     return {
