@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_i18n/widgets/I18nText.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:sys_dia_log/hive/hive_box.dart';
+import 'package:sys_dia_log/modules/home/service/list_data_transform.dart';
 import 'package:sys_dia_log/modules/home/ui/add_new_button.dart';
 import 'package:sys_dia_log/modules/home/ui/measurements_list.dart';
 import 'package:sys_dia_log/modules/home/ui/refresh_button.dart';
@@ -23,7 +24,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     super.initState();
-    _futureBox = Hive.openBox<Measurement>(measurementsBox);
+    _futureBox = Hive.openBox(measurementsBox);
   }
 
   _addNavigate() {
@@ -65,8 +66,8 @@ class _HomeViewState extends State<HomeView> {
           return ValueListenableBuilder<Box<Measurement>>(
             valueListenable:
                 Hive.box<Measurement>(measurementsBox).listenable(),
-            builder: (context, value, child) =>
-                MeasurementsList(data: value.values.toList()),
+            builder: (context, data, child) => MeasurementsList(
+                items: ListDataTransform.transform(data.values)),
           );
         },
       ),
