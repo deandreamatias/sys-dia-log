@@ -26,7 +26,7 @@ class BloodPressureCategoryCalc {
       return BloodPressureCategory.hypertensionStage1;
     }
 
-    if (systolic > 140 || diastolic > 90) {
+    if (systolic >= 140 || diastolic >= 90) {
       return BloodPressureCategory.hypertensionStage2;
     }
 
