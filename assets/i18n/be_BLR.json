@@ -12,9 +12,11 @@
   "add": "Дадаць Вымярэнне",
   "dismiss": "Закрыць",
   "category": {
-    "low": "Нізкае",
-    "normal": "Нармальнае",
-    "preHigh": "Павышаннае",
-    "high": "Высокае"
+    "LOW": "Нізкае",
+    "NORMAL": "Нармальнае",
+    "ELEVATED": "Павышаннае",
+    "HYPERTENSION_STAGE_1": "Гіпертанія I стадыя",
+    "HYPERTENSION_STAGE_2": "Гіпертанія II стадыя",
+    "HYPERTENSION_CRISIS": "Гіпертанічны крыз"
   }
 }

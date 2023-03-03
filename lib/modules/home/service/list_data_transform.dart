@@ -5,15 +5,31 @@ import 'package:sys_dia_log/modules/measurement/models/measurement.dart';
 
 class ListDataTransform {
   static List<ListItem> transform(Iterable<Measurement> data) {
-    // TODO: convert to list data
     return List.from(data
         .map((e) => ListData(
             e.bloodPressure.systolic,
             e.bloodPressure.diastolic,
-            e.bloodPressure.category,
-            Colors.black,
+            _toCategoryDisplayName(e.bloodPressure.category),
+            _toCategoryColor(e.bloodPressure.category),
             e.pulse.bpm,
             e.createdAt.toLocal()))
         .map((e) => ListItem(e)));
+  }
+
+  static String _toCategoryDisplayName(String category) {
+    return "category.$category";
+  }
+
+  static const colorsMap = <String, Color>{
+    "LOW": Colors.grey,
+    "NORMAL": Colors.green,
+    "ELEVATED": Colors.yellow,
+    "HYPERTENSION_STAGE_1": Colors.amber,
+    "HYPERTENSION_STAGE_2": Colors.orange,
+    "HYPERTENSION_CRISIS": Colors.red,
+  };
+
+  static Color _toCategoryColor(String category) {
+    return colorsMap[category] ?? Colors.transparent;
   }
 }

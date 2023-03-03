@@ -12,9 +12,11 @@
   "add": "Add Measurement",
   "dismiss": "Dismiss",
   "category": {
-    "low": "Low",
-    "normal": "Normal",
-    "preHigh": "Pre-High",
-    "high": "High"
+    "LOW": "Low",
+    "NORMAL": "Normal",
+    "ELEVATED": "Pre-High",
+    "HYPERTENSION_STAGE_1": "Hypertension stage 1",
+    "HYPERTENSION_STAGE_2": "Hypertension stage 1",
+    "HYPERTENSION_CRISIS": "Hypertension crisis"
   }
 }

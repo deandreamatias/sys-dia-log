@@ -15,7 +15,10 @@ class SysDiaLogApp extends StatelessWidget {
       useInheritedMediaQuery: true,
       title: 'Sys Dia Log',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.light(),
+      theme: ThemeData(
+        useMaterial3: true,
+        colorSchemeSeed: Colors.blue,
+      ),
       darkTheme: ThemeData.dark(),
       themeMode: ThemeMode.system,
       supportedLocales: locales,

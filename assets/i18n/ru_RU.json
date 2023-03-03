@@ -12,9 +12,11 @@
   "add": "Добавить Измерение",
   "dismiss": "Закрыть",
   "category": {
-    "low": "Низкое",
-    "normal": "Норма",
-    "preHigh": "Повышенное",
-    "high": "Высокое"
+    "LOW": "Низкое",
+    "NORMAL": "Норма",
+    "ELEVATED": "Повышенное",
+    "HYPERTENSION_STAGE_1": "Гипертония I",
+    "HYPERTENSION_STAGE_2": "Гипертония II",
+    "HYPERTENSION_CRISIS": "Гипертонический криз"
   }
 }
