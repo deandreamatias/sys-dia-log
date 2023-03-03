@@ -28,7 +28,11 @@ void main() {
       BloodPressure(
           systolic: 130,
           diastolic: 70,
-          category: BloodPressureCategory.hypertensionStage1.name)
+          category: BloodPressureCategory.hypertensionStage1.name),
+      BloodPressure(
+          systolic: 190,
+          diastolic: 120,
+          category: BloodPressureCategory.hypertensionCrisis.name),
     ];
 
     // when
