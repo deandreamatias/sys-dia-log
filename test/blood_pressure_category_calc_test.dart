@@ -36,7 +36,6 @@ void main() {
     ];
 
     // when
-
     for (var bp in inToExpect) {
       test("${bp.systolic}, ${bp.diastolic} expect ${bp.category}", () {
         var category = calc.getCategoryByValues(
