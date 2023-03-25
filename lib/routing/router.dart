@@ -16,7 +16,7 @@ part 'router.gr.dart';
     CustomRoute(
         page: NavBarView,
         children: [
-          AutoRoute(page: HomeView, initial: true),
+          AutoRoute(page: HomeView),
           AutoRoute(page: MeasurementView),
           AutoRoute(page: SettingsView)
         ],

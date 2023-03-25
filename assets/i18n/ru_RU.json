@@ -18,5 +18,9 @@
     "HYPERTENSION_STAGE_1": "Гипертония I",
     "HYPERTENSION_STAGE_2": "Гипертония II",
     "HYPERTENSION_CRISIS": "Гипертонический криз"
-  }
+  },
+  "appearance": "Внешний вид",
+  "system": "Системный",
+  "system_desc": "Следует системным настройкам",
+  "dark_mode": "Темный режим"
 }

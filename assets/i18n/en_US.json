@@ -18,5 +18,9 @@
     "HYPERTENSION_STAGE_1": "Hypertension stage 1",
     "HYPERTENSION_STAGE_2": "Hypertension stage 1",
     "HYPERTENSION_CRISIS": "Hypertension crisis"
-  }
+  },
+  "appearance": "Appearance",
+  "system": "System",
+  "system_desc": "Follow system setting",
+  "dark_mode": "Dark Mode"
 }

@@ -18,5 +18,9 @@
     "HYPERTENSION_STAGE_1": "Гіпертанія I стадыя",
     "HYPERTENSION_STAGE_2": "Гіпертанія II стадыя",
     "HYPERTENSION_CRISIS": "Гіпертанічны крыз"
-  }
+  },
+  "appearance": "Знешні выгляд",
+  "system": "Cістэмны",
+  "system_desc": "Адпавядае сістэмым наладам",
+  "dark_mode": "Цёмны рэжым"
 }
