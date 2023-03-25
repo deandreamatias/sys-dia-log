@@ -19,10 +19,10 @@ class _ThemeSettingsState extends State<ThemeSettings> {
     _themeMode = context.read<AppSettingsProvider>().themeMode;
   }
 
-  _onThemeChange(BuildContext ctx, bool isSelected, ThemeMode mode) {
+  _onThemeChange(bool isSelected, ThemeMode mode) {
     setState(() {
       if (!isSelected && mode == ThemeMode.system) {
-        var currentSystemMode = MediaQuery.of(ctx).platformBrightness;
+        var currentSystemMode = MediaQuery.of(context).platformBrightness;
         if (currentSystemMode == Brightness.dark) {
           _themeMode = ThemeMode.dark;
         } else {
@@ -47,15 +47,13 @@ class _ThemeSettingsState extends State<ThemeSettings> {
           title: I18nText("system"),
           subtitle: I18nText("system_desc"),
           value: ThemeMode.system == _themeMode,
-          onChanged: (value) =>
-              _onThemeChange(context, value, ThemeMode.system),
+          onChanged: (value) => _onThemeChange(value, ThemeMode.system),
         ),
         if (ThemeMode.system != _themeMode)
           SwitchListTile.adaptive(
             title: I18nText("dark_mode"),
             value: ThemeMode.dark == _themeMode,
-            onChanged: (value) =>
-                _onThemeChange(context, value, ThemeMode.dark),
+            onChanged: (value) => _onThemeChange(value, ThemeMode.dark),
           )
       ],
     );

@@ -22,5 +22,10 @@
   "appearance": "Appearance",
   "system": "System",
   "system_desc": "Follow system setting",
-  "dark_mode": "Dark Mode"
+  "dark_mode": "Dark Mode",
+  "locale": "Locale",
+  "locale_desc": "Choose the app's locale setting",
+  "en": "English",
+  "ru": "Русский",
+  "be": "Беларуская"
 }
