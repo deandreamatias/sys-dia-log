@@ -5,7 +5,7 @@ import 'package:sys_dia_log/modules/measurement/models/measurement.dart';
 
 class ListDataTransform {
   static List<ListItem> transform(Iterable<Measurement> data) {
-    return List.from(data
+    return _sorted(data)
         .map((e) => ListData(
             e.bloodPressure.systolic,
             e.bloodPressure.diastolic,
@@ -13,7 +13,14 @@ class ListDataTransform {
             _toCategoryColor(e.bloodPressure.category),
             e.pulse.bpm,
             e.createdAt.toLocal()))
-        .map((e) => ListItem(e)));
+        .map((e) => ListItem(e))
+        .toList();
+  }
+
+  static List _sorted(Iterable<Measurement> data) {
+    List sorted = data.toList();
+    sorted.sort((b, a) => a.createdAt.compareTo(b.createdAt));
+    return sorted;
   }
 
   static String _toCategoryDisplayName(String category) {
