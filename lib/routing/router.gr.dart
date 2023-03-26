@@ -69,7 +69,7 @@ class _$AppRouter extends RootStackRouter {
           children: [
             RouteConfig(
               HomeViewRoute.name,
-              path: '',
+              path: 'home-view',
               parent: NavBarViewRoute.name,
             ),
             RouteConfig(
@@ -118,7 +118,7 @@ class HomeViewRoute extends PageRouteInfo<void> {
   const HomeViewRoute()
       : super(
           HomeViewRoute.name,
-          path: '',
+          path: 'home-view',
         );
 
   static const String name = 'HomeViewRoute';
