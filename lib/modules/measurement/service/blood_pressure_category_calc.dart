@@ -14,11 +14,11 @@ class BloodPressureCategoryCalc {
       return BloodPressureCategory.low;
     }
 
-    if (systolic < 120 && diastolic < 80) {
+    if (systolic < 120 && diastolic <= 80) {
       return BloodPressureCategory.normal;
     }
 
-    if (systolic < 129 && diastolic < 80) {
+    if (systolic < 129 && diastolic <= 80) {
       return BloodPressureCategory.elevated;
     }
 
