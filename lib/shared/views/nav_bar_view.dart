@@ -4,24 +4,18 @@ import 'package:flutter_i18n/flutter_i18n.dart';
 
 import 'package:sys_dia_log/routing/router.dart';
 
+@RoutePage()
 class NavBarView extends StatelessWidget {
   const NavBarView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return AutoTabsRouter(
-      routes: [
-        const HomeViewRoute(),
-        MeasurementViewRoute(),
-        const SettingsViewRoute()
-      ],
-      builder: (context, child, animation) {
+      routes: [const HomeRoute(), MeasurementRoute(), const SettingsRoute()],
+      builder: (context, child) {
         final tabsRouter = AutoTabsRouter.of(context);
         return Scaffold(
-          body: FadeTransition(
-            opacity: animation,
-            child: child,
-          ),
+          body: child,
           bottomNavigationBar: NavigationBar(
               destinations: [
                 NavigationDestination(

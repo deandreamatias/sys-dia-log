@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:sys_dia_log/modules/measurement/models/blood_pressure.dart';
@@ -11,7 +12,7 @@ import 'hive/hive_box.dart';
 
 /// Sys Dia Log application entrypoint.
 void main() async {
-  await Hive.initFlutter();
+  if (!kIsWeb) await Hive.initFlutter();
 
   Hive.registerAdapter(BloodPressureHiveAdapter());
   Hive.registerAdapter(PulseHiveAdapter());
@@ -19,9 +20,7 @@ void main() async {
   Hive.registerAdapter(ThemeModeHiveAdapter());
   Hive.registerAdapter(LocaleHiveAdapter());
 
-  await Future.wait([
-    Hive.openBox(applicationSettingsBox),
-  ]);
+  await Future.wait([Hive.openBox(applicationSettingsBox)]);
 
   runApp(SysDiaLogApp());
 }

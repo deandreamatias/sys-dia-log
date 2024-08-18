@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:sys_dia_log/routing/router.dart';
 
+@RoutePage()
 class SplashScreenView extends StatefulWidget {
   const SplashScreenView({super.key});
 
@@ -14,8 +15,9 @@ class _SplashScreenViewState extends State<SplashScreenView> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 2),
-        () => AutoRouter.of(context).replace(const NavBarViewRoute()));
+    Future.delayed(const Duration(seconds: 2), () {
+      if (mounted) AutoRouter.of(context).replace(const NavBarRoute());
+    });
   }
 
   @override

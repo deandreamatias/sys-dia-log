@@ -8,10 +8,11 @@ import 'package:sys_dia_log/modules/measurement/service/measurement_service.dart
 import 'package:sys_dia_log/routing/router.dart';
 import 'package:sys_dia_log/shared/ui/snack_bars.dart';
 
+@RoutePage()
 class MeasurementView extends StatefulWidget {
   final void Function(Measurement)? onAddNewMeasurement;
 
-  const MeasurementView({Key? key, this.onAddNewMeasurement}) : super(key: key);
+  const MeasurementView({super.key, this.onAddNewMeasurement});
 
   @override
   State<StatefulWidget> createState() => _MeasurementViewState();
@@ -41,7 +42,7 @@ class _MeasurementViewState extends State<MeasurementView> {
 
     widget.onAddNewMeasurement?.call(measurement);
 
-    AutoRouter.of(context).navigate(const HomeViewRoute());
+    AutoRouter.of(context).navigate(const HomeRoute());
 
     ScaffoldMessenger.of(context)
       ..removeCurrentSnackBar()

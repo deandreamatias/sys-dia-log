@@ -7,7 +7,7 @@ import 'package:sys_dia_log/modules/settings/providers/app_settings_provider.dar
 import 'package:sys_dia_log/routing/router.dart';
 
 class SysDiaLogApp extends StatelessWidget {
-  SysDiaLogApp({Key? key}) : super(key: key);
+  SysDiaLogApp({super.key});
 
   final _appRouter = AppRouter();
 
@@ -20,12 +20,12 @@ class SysDiaLogApp extends StatelessWidget {
         ),
       ],
       builder: (context, child) => MaterialApp.router(
-        useInheritedMediaQuery: true,
         title: 'Sys Dia Log',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorSchemeSeed: Colors.blue,
         ),
+        routerConfig: _appRouter.config(),
         darkTheme: ThemeData.dark(),
         themeMode: context.watch<AppSettingsProvider>().themeMode,
         locale: context.watch<AppSettingsProvider>().locale,
@@ -39,8 +39,6 @@ class SysDiaLogApp extends StatelessWidget {
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
-        routerDelegate: _appRouter.delegate(),
-        routeInformationParser: _appRouter.defaultRouteParser(),
       ),
     );
   }
