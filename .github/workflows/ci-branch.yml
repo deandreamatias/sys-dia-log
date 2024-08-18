@@ -2,30 +2,39 @@ name: "CI [branch]"
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [main]
   pull_request:
-    branches: [ "main" ]
+    branches: [main]
+  
+  workflow_dispatch:
 
-jobs:
-  build:
+jobs: 
+  build: 
+    name: Build and test
     runs-on: ubuntu-latest
-
     steps:
-      - uses: subosito/flutter-action@v2
-        with:
-          channel: "stable"
-          flutter-version: "3.7.6"
-          cache: true
-
-      - uses: actions/checkout@v3
-
-      - name: Install dependencies
-        run: flutter pub get
-
-      - name:  Analyze project source
-        run: |
-          flutter analyze --fatal-infos
-          flutter format --set-exit-if-changed .
-
-      - name: Run tests
-        run: flutter test
+    - name: configure enviroment
+      uses: actions/checkout@v4
+    - name: Get Flutter version by FVM
+      uses: kuhnroyal/flutter-fvm-config-action@v2
+      id: fvm-config-action
+      with:
+        path: '.fvmrc'
+    - uses: subosito/flutter-action@v2
+      with:
+        flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
+        cache: true
+        cache-key: 'flutter-:os:-:version:'
+        cache-path: '${{ runner.tool_cache }}/flutter/:os:-:version:'
+    - name: get flutter dependencies
+      run: flutter pub get
+    - name: Verify formated files
+      run: dart format . --set-exit-if-changed
+    - name: code analyze 
+      run: flutter analyze
+    - name: Run tests
+      run: flutter test
+    - name: build web app
+      run: flutter build web
+    - name: build android app
+      run: flutter build appbundle --debug
