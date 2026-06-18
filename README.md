@@ -1,5 +1,8 @@
 # sys-dia-log-flutter
 
+[![Codeberg](https://img.shields.io/badge/Codeberg-2185D0?logo=Codeberg&logoColor=white)](https://codeberg.org/deandreamatias/sys-dia-log)
+[![Paypal donate](https://img.shields.io/badge/paypal-donate-blue)](https://paypal.me/deandreamatias)
+
  ![sys-dia-log](assets/sys-dia-log-logo.svg)
 
 > Blood pressure diary.
